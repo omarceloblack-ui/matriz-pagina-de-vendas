@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "lowticket-base",
+  "name": "segredorevelado",
+  "account_id": "dd883f14f393bd2c385e8189af3ba494",
   "compatibility_date": "2026-08-29",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
