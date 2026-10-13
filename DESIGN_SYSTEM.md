@@ -1,4 +1,4 @@
-# DESIGN_SYSTEM.md — Matriz Low Ticket
+# DESIGN_SYSTEM.md — Matriz Página de Vendas
 
 ## 1. Estrutura fixa
 1. Barra superior de urgência

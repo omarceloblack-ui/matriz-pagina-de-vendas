@@ -1,1 +1,1 @@
-export const seo = { title: 'Página de Vendas Low-Ticket', description: '', canonical: '', ogTitle: '', ogDescription: '', ogImage: '', robots: 'index,follow' }
+export const seo = { title: 'Matriz Página de Vendas', description: '', canonical: '', ogTitle: '', ogDescription: '', ogImage: '', robots: 'index,follow' }

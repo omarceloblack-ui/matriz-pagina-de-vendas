@@ -1,7 +1,7 @@
-# AGENTS.md — Matriz Low Ticket
+# AGENTS.md — Matriz Página de Vendas
 
 ## Papel
-Esta pasta é uma matriz reutilizável para landing pages low-ticket. Duplique `_base` para cada produto. A regra central é: trocar o produto sem reconstruir a página.
+Esta pasta é uma matriz reutilizável para páginas de vendas. Duplique `_base` para cada produto. A regra central é: trocar o produto sem reconstruir a página.
 
 ## Leitura obrigatória
 Antes de alterar código, leia:

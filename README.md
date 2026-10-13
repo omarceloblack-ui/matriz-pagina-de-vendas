@@ -1,6 +1,6 @@
-# Matriz Low Ticket
+# Matriz Página de Vendas
 
-Base reutilizável de landing pages low-ticket.
+Base reutilizável para páginas de vendas.
 
 ## Uso
 1. Não trabalhar diretamente na `_base`.

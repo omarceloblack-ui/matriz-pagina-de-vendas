@@ -1,21 +1,21 @@
-# PROJECT_SPEC.md — Página de Vendas Low-Ticket
+# PROJECT_SPEC.md — Matriz Página de Vendas
 
-> Informações extraídas da página de referência em 11 de agosto de 2026. Campos não disponíveis permanecem vazios.
+> Informações da matriz reutilizável. Campos não disponíveis permanecem vazios.
 
 ## Identificação
-- Nome do projeto: Página de Vendas Low-Ticket
+- Nome do projeto: Matriz Página de Vendas
 - Nome do produto: não informado; placeholder “Adicione o nome do produto aqui”
-- Slug: pdv-low-ticket
-- Nicho: produtos digitais low-ticket
-- Objetivo: página de vendas reutilizável para uma oferta low-ticket
-- Domínio/subdomínio: `pdvlowticket.pages.dev` (somente referência de origem; não configurar deploy)
+- Slug: matriz-pagina-de-vendas
+- Nicho: produtos digitais e páginas de vendas
+- Objetivo: matriz de página de vendas reutilizável de alta conversão
+- Domínio/subdomínio: `matrizpaginadevendas.pages.dev`
 
 ## Stack
 - Framework: React + Vite + TypeScript + Tailwind
 - Build: `pnpm build`
 - Output: `dist/`
-- GitHub: `https://github.com/omarceloblack-ui/lowticket-base`
-- Cloudflare Workers Static Assets: nome-base `lowticket-base` (trocar por um nome exclusivo em cada cópia antes de publicar)
+- GitHub: `https://github.com/omarceloblack-ui/matriz-pagina-de-vendas`
+- Cloudflare: nome-base `matrizpaginadevendas` (trocar por um nome exclusivo em cada cópia antes de publicar)
 - Domínio de referência: `basepdv.marceloblack.com` (não configurar automaticamente)
 
 ## Identidade variável
@@ -172,7 +172,7 @@ Todos em `public/images/`. A página de referência utiliza apenas placeholders;
 > Nenhum ID foi inventado ou herdado.
 
 ## SEO
-- Title: Página de Vendas Low-Ticket
+- Title: Matriz Página de Vendas
 - Description: não informada
 - Canonical: não informado
 - OG title: não informado

@@ -1,7 +1,7 @@
-# ASSETS_GUIDE.md — Matriz Low Ticket
+# ASSETS_GUIDE.md — Matriz Página de Vendas
 
 ## Objetivo
-Fonte oficial para preparação, nomeação, proporção e uso das imagens da matriz de Página de Vendas Low Ticket. A troca de imagens entre produtos não deve exigir alteração da estrutura ou dos componentes.
+Fonte oficial para preparação, nomeação, proporção e uso das imagens da Matriz Página de Vendas. A troca de imagens entre produtos não deve exigir alteração da estrutura ou dos componentes.
 
 ## Regras gerais
 - Pasta oficial: `public/images/`
@@ -161,4 +161,4 @@ Se um produto exigir formato ou proporção diferente:
 3. implementar a exceção somente naquele projeto;
 4. preservar o comportamento dos demais projetos.
 
-Este arquivo só deve mudar quando houver uma decisão de alterar o padrão global de assets da matriz Low Ticket.
+Este arquivo só deve mudar quando houver uma decisão de alterar o padrão global de assets da Matriz Página de Vendas.
