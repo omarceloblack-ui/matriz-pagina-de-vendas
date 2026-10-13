@@ -6,7 +6,7 @@ Base reutilizável de landing pages low-ticket.
 1. Não trabalhar diretamente na `_base`.
 2. Duplicar `_base`.
 3. Renomear a cópia em `kebab-case`.
-4. Abrir a cópia no Codex.
+4. Abrir a cópia na Inteligência Artificial.
 5. Colocar imagens em `public/images`.
 6. Preencher `PROJECT_SPEC.md`.
 7. Atualizar dados conforme `CONTENT_SCHEMA.md`.
@@ -31,7 +31,7 @@ Base reutilizável de landing pages low-ticket.
 - `wrangler.jsonc` aponta `assets.directory` para `dist/` e configura fallback de SPA.
 
 ## Governança
-- AGENTS.md: como o Codex trabalha.
+- AGENTS.md: como a Inteligência Artificial trabalha.
 - DESIGN_SYSTEM.md: padrões protegidos.
 - PROJECT_SPEC.md: variáveis do produto.
 - CONTENT_SCHEMA.md: contrato dos dados.
