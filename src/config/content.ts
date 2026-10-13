@@ -60,9 +60,9 @@ export const pageContent = {
     },
     popup: {
       eyebrow: 'Espere! Não saia ainda...',
-      message: 'Você escolheu a oferta simples. Mas existe uma condição especial antes de finalizar: você pode desbloquear agora a Oferta Completa com todos os bônus inclusos.',
+      message: 'Você escolheu a oferta simples. Desbloqueie agora a Oferta Completa com todos os bônus inclusos:',
       title: 'Oferta especial', previousPrice: 'R$ 29,90', installmentCount: 5, installmentValue: 'R$ 4,90', cashValue: 'R$ 22,90',
-      ctaLabel: 'Sim! Quero a oferta completa', secondaryLabel: 'Não, quero continuar com a oferta simples.',
+      ctaLabel: 'COM DESCONTO', secondaryLabel: 'SEM DESCONTO',
     },
   },
   guarantee: {
