@@ -1,11 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "matrizpaginadevendas",
-  "account_id": "dd883f14f393bd2c385e8189af3ba494",
-  "compatibility_date": "2026-08-29",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
+  "name": "matriz-pagina-de-vendas",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-08-29"
 }

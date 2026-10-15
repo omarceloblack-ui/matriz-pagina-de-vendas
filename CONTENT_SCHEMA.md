@@ -94,7 +94,7 @@ export const seo = {
   ogTitle: "",
   ogDescription: "",
   ogImage: "",
-  robots: "index,follow"
+  robots: "noindex,nofollow"
 };
 ```
 
@@ -126,3 +126,6 @@ Copy não altera implicitamente quantidades estruturais, ordem, proporções, pr
 
 ## Nunca inventar
 Depoimentos, resultados, antes/depois, números, urgência, escassez, garantia, preço, desconto, bônus, certificações ou alegações.
+
+## Publicação no Cloudflare Pages
+A matriz usa projectType: template. Produtos usam projectType: product e nome exclusivo em wrangler.jsonc, com pages_build_output_dir: ./dist. O predeploy valida os dados efetivos das configurações TypeScript, não a sintaxe das listas. O build escreve title, description, robots, canonical e Open Graph no HTML estático. Decidir robots em cada produto. Campos GA/GTM/TikTok são reservados: IDs preenchidos bloqueiam o predeploy enquanto não houver carregador implementado.

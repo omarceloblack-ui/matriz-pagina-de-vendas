@@ -88,7 +88,7 @@
 - [ ] Somente WebP publicado, exceto os três SVGs protegidos da base
 - [ ] `pnpm prepare:images` e `pnpm validate:assets` aprovados
 - [ ] Nenhuma imagem quebrada/distorcida
-- [ ] Todas as imagens publicadas em WebP, com a única exceção SVG protegida do selo de garantia
+- [ ] Todas as imagens publicadas em WebP, exceto os três SVGs protegidos
 - [ ] Hero prioritária
 - [ ] Lazy-load fora da dobra
 - [ ] Layout estável
@@ -138,10 +138,21 @@ Testar: 320, 375, 390, 768, 1024, 1280, 1440px.
 - [ ] `pnpm cloudflare:check` aprovado sem publicar
 - [ ] Commit/push somente após autorização
 - [ ] `pnpm cloudflare:deploy` somente após autorização
-- [ ] Cloudflare Workers Static Assets atualizado
+- [ ] Cloudflare Pages atualizado
 - [ ] Domínio testado
 - [ ] Deploy corresponde ao commit aprovado
 - [ ] `pnpm predeploy` aprovado sem contornar requisitos
 
 ## Relatório
 Informar: problemas, correções, build, arquivos alterados, pendências e status de produção.
+
+## Publicação via Pages
+- [ ] projectType é product na cópia e template na matriz
+- [ ] Nome em wrangler.jsonc é exclusivo e igual ao projeto no painel
+- [ ] pages_build_output_dir é ./dist, sem assets/account_id de Workers
+- [ ] Build no painel: pnpm predeploy; saída: dist; raiz correta
+- [ ] NODE_VERSION=22.16.0 e PNPM_VERSION=10.26.0 em produção e preview
+- [ ] Repositório contém scripts, src, public e configurações completas
+- [ ] SEO e OG constam em dist/index.html antes de executar JavaScript
+- [ ] robots está correto para o produto final
+- [ ] Publicação automática da branch vinculada está compreendida e autorizada

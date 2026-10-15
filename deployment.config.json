@@ -5,8 +5,9 @@
   "requireGoogleTagManager": false,
   "requireTikTokPixel": false,
   "requireLegalLinks": false,
-  "requireSeo": false,
-  "requireNoPlaceholders": false,
+  "requireSeo": true,
+  "requireNoPlaceholders": true,
   "maxImageSizeKb": 1500,
-  "webpQuality": 92
+  "webpQuality": 92,
+  "projectType": "template"
 }

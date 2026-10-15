@@ -1,43 +1,56 @@
-# Matriz Página de Vendas
+# Matriz Página de Vendas — Cloudflare Pages
 
-Base reutilizável para páginas de vendas.
+Base reutilizável com React, TypeScript e Vite. Publicação pelo Cloudflare Pages conectado ao GitHub. Não usa Workers Static Assets.
 
-## Uso
-1. Não trabalhar diretamente na `_base`.
-2. Duplicar `_base`.
-3. Renomear a cópia em `kebab-case`.
-4. Abrir a cópia na Inteligência Artificial.
-5. Colocar imagens em `public/images`.
-6. Preencher `PROJECT_SPEC.md`.
-7. Atualizar dados conforme `CONTENT_SCHEMA.md`.
-8. Preservar `DESIGN_SYSTEM.md`.
-9. Preview e revisão.
-10. Executar `pnpm prepare:images` para converter e normalizar imagens.
-11. `DEPLOY_CHECKLIST.md`.
-12. Trocar `name` em `wrangler.jsonc` pelo nome exclusivo do novo projeto.
-13. Executar `pnpm cloudflare:check`; o comando bloqueia projetos incompletos e valida o pacote do Worker sem publicar.
-14. Após aprovação explícita: executar `pnpm cloudflare:deploy`.
+## Preparar o computador
 
-## Automação da matriz
-- A página captura UTMs, `fbclid`, `gclid` e `ttclid` e os encaminha aos checkouts.
-- Apenas WebP é publicado; formatos raster comuns são convertidos automaticamente com qualidade configurável.
-- O arquivo original é excluído somente depois que o WebP for gerado e validado com sucesso.
-- `deployment.config.json` define quais checkouts, pixels, links legais e campos de SEO são obrigatórios.
-- `pnpm build` prepara e valida assets.
-- `pnpm predeploy` valida assets, conteúdo, links, tracking e SEO antes do build final.
-- `pnpm cloudflare:check` executa o predeploy e um empacotamento local (`wrangler deploy --dry-run`), sem publicar.
-- `pnpm cloudflare:dev` testa localmente o mesmo formato usado pelo Workers Static Assets.
-- `pnpm cloudflare:deploy` é o único comando que publica e só deve ser executado com autorização explícita.
-- `wrangler.jsonc` aponta `assets.directory` para `dist/` e configura fallback de SPA.
+Instale Node.js 22.16.0 e pnpm 10.26.0. O projeto registra essas versões em .node-version e package.json. Não envie node_modules, dist, .env ou .git para outro repositório por upload manual.
 
-## Governança
-- AGENTS.md: como a Inteligência Artificial trabalha.
-- DESIGN_SYSTEM.md: padrões protegidos.
-- PROJECT_SPEC.md: variáveis do produto.
-- CONTENT_SCHEMA.md: contrato dos dados.
-- DEPLOY_CHECKLIST.md: auditoria final.
+## Criar um produto
 
-**Fluxo:** duplicar → renomear o Worker → trocar copy + imagens + cores + links + tracking + SEO → revisar → `pnpm cloudflare:check` → publicar somente com autorização.
+1. No GitHub, use Code → Download ZIP e extraia todos os arquivos em uma nova pasta. Abra a pasta que contém package.json, não a pasta externa do ZIP.
+2. Execute `pnpm install --frozen-lockfile` e `pnpm dev`. Abra o endereço informado para ver a página local.
+3. Preencha PROJECT_SPEC.md e atualize src/config/content.ts, theme.ts, links.ts, tracking.ts e seo.ts. Não reutilize checkouts, domínio ou pixels de outro produto.
+4. Coloque imagens em public/images. Execute `pnpm prepare:images`. Os originais são excluídos após a conversão validada; preserve suas fontes fora dessa pasta se precisar delas.
+5. Em wrangler.jsonc, troque name pelo nome exclusivo do novo projeto Pages, igual ao nome escolhido no painel.
+6. Em deployment.config.json, altere projectType de template para product. Preencha os requisitos ativos; não desative requisitos apenas para esconder erros.
+7. Configure SEO, canonical, imagem OG com URL pública e robots do produto. A matriz vem com noindex,nofollow.
+8. Revise a página e DEPLOY_CHECKLIST.md. Execute `pnpm cloudflare:check`. Este comando valida o conteúdo, gera dist e confere a configuração local do Pages; não testa a infraestrutura remota e não publica.
+9. Crie um novo repositório e envie TODOS os arquivos do projeto, incluindo scripts, public, src e arquivos de configuração. Prefira Git para preservar a estrutura. Não envie node_modules nem dist.
 
-## Cloudflare Workers Static Assets
-A matriz usa Workers Static Assets sem código de backend. O Vite gera `dist/` e o Wrangler publica somente esses arquivos estáticos. Cada cópia deve receber um `name` exclusivo em `wrangler.jsonc`; reutilizar o nome da matriz sobrescreveria o mesmo Worker.
+## Conectar ao Cloudflare Pages
+
+Em Workers e Pages, escolha criar um projeto **Pages**, conectar ao GitHub e selecione o novo repositório.
+
+| Campo | Valor |
+|---|---|
+| Nome | Igual ao name de wrangler.jsonc |
+| Branch | main, ou a branch de produção escolhida |
+| Framework | React (Vite), ou Nenhum |
+| Comando de build | pnpm predeploy |
+| Saída | dist |
+| Raiz | Vazia quando package.json está na raiz |
+| Variável NODE_VERSION | 22.16.0 |
+| Variável PNPM_VERSION | 10.26.0 |
+
+Configure as versões para produção e previews. Não coloque senhas ou tokens em variáveis VITE_: ficam públicos no navegador.
+
+Depois de publicar, confira a URL pages.dev, imagens, modal, FAQ, versão mobile e os três checkouts. Configure um domínio próprio no painel e atualize canonical e OG. Novos envios à branch vinculada geram novas publicações automaticamente.
+
+## Comandos
+
+- `pnpm dev`: preview de desenvolvimento, permitido com placeholders.
+- `pnpm build`: gera dist para revisão local, inclusive na matriz.
+- `pnpm preview`: serve dist após o build.
+- `pnpm predeploy`: bloqueia a matriz e produtos incompletos, depois gera o site final.
+- `pnpm cloudflare:check`: predeploy e conferência local da configuração Pages.
+- `pnpm cloudflare:dev`: executa o build no ambiente local do Pages, sem publicar.
+- `pnpm cloudflare:deploy`: publicação manual opcional por Wrangler Pages; exige autorização e autenticação. O fluxo recomendado é GitHub → Pages.
+
+## Limites das integrações
+
+O Meta Pixel é carregado apenas quando configurado. GA, GTM e TikTok têm campos reservados, mas não têm carregadores implementados: a validação bloqueia IDs preenchidos para evitar uma integração silenciosamente inoperante. Implemente e valide a integração antes de usá-la. UTMs, fbclid, gclid e ttclid são encaminhados aos checkouts.
+
+## Proteção da matriz
+
+A matriz usa projectType: template e não pode passar no predeploy. Ela pode ser aberta e compilada localmente. Cada produto precisa de configuração própria, conteúdo final, imagens, preços autorizados e checkouts. Preserve a estrutura e o design definidos em AGENTS.md e DESIGN_SYSTEM.md.

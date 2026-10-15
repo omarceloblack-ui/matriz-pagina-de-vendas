@@ -8,14 +8,14 @@
 - Slug: matriz-pagina-de-vendas
 - Nicho: produtos digitais e páginas de vendas
 - Objetivo: matriz de página de vendas reutilizável de alta conversão
-- Domínio/subdomínio: `matrizpaginadevendas.pages.dev`
+- Domínio/subdomínio: não configurado; definir em cada produto
 
 ## Stack
 - Framework: React + Vite + TypeScript + Tailwind
 - Build: `pnpm build`
 - Output: `dist/`
 - GitHub: `https://github.com/omarceloblack-ui/matriz-pagina-de-vendas`
-- Cloudflare: nome-base `matrizpaginadevendas` (trocar por um nome exclusivo em cada cópia antes de publicar)
+- Cloudflare: nome-base `matriz-pagina-de-vendas` (trocar por um nome exclusivo em cada cópia antes de publicar)
 - Domínio de referência: `basepdv.marceloblack.com` (não configurar automaticamente)
 
 ## Identidade variável
@@ -32,14 +32,14 @@
 - Ativa: sim
 - Texto configurável: “Válido só hoje”
 - Data: calculada dinamicamente no navegador, usando a data local do visitante e o formato `pt-BR`
-- Informação verdadeira/coerente com campanha: a barra declara validade apenas para a data local exibida
+- Revisar veracidade na cópia: a data dinâmica não comprova prazo real da oferta; desativar a barra se não houver uma condição autorizada.
 
 ## Hero
-- Imagem: placeholder, sem arquivo fornecido
-- Alt: Imagem da Hero
+- Imagem de demonstração: /images/hero-mockup.webp
+- Alt: Mockup do produto
 - H1: [Diga o que o produto resolve] com o [nome do método ou mecanismo] em apenas [prazo do resultado]
 - Parágrafo: Explique como o método funciona, quais benefícios principais ele entrega e para quem ele é indicado, incluindo uma objeção comum que o produto consegue superar.
-- CTA: Quero começar agora
+- CTA de demonstração: ADICIONAR CTA
 - Link/ação: rolagem para a seção de ofertas
 - Selo/prova social: `/images/selos-seguranca-compra.svg`, na mesma largura do CTA
 
@@ -89,34 +89,28 @@
 ## Oferta simples
 - Itens: Adicione o nome do produto aqui; Acesso vitalício
 - Preço anterior: R$ 97,00
-- Parcelas: 2
-- Valor da parcela: R$ 5,38
-- Valor à vista: R$ 9,90
+- Parcelas: 4
+- Valor da parcela: R$ 4,89
+- Valor à vista: R$ 19,90
 - CTA: Oferta simples
-- Checkout: `https://pay.cakto.com.br/9nv5e7h`
+- Checkout: vazio; preencher na cópia do produto
 
 ## Oferta completa
-- Itens: Adicione o nome do produto aqui; Acesso vitalício; Título do bônus 01; Título do bônus 02; Título do bônus 03
-- Preço anterior: R$ 194,00
-- Parcelas: 4
-- Valor da parcela: R$ 5,57
-- Valor à vista: R$ 19,90
-- CTA: Oferta completa
-- Checkout: `https://pay.cakto.com.br/zeooe3g_1057695`
+- Itens: os definidos em src/config/content.ts; lista compartilhada com o modal
+- Preço anterior de demonstração: R$ 194,00
+- Parcelas de demonstração: 6
+- Valor da parcela de demonstração: R$ 5,89
+- Valor à vista de demonstração: R$ 29,90
+- Checkout: vazio; preencher na cópia do produto
 
 ## Modal de upgrade
-- Destaque: Espere!
-- Mensagem: Já que você quer a Oferta Simples, vou te dar de presente a Oferta Completa com desconto especial, somente desta vez.
-- Título: OFERTA ESPECIAL
-- Preço anterior: R$ 194,00
-- Parcelas: 3
-- Valor da parcela: R$ 5,46
-- Valor à vista: R$ 14,90
-- CTA: OFERTA ESPECIAL
-- Checkout upgrade: `https://pay.cakto.com.br/366ux3h`
-- Ação secundária: OFERTA SIMPLES
-
-> Itens do modal vêm da mesma fonte da Oferta Completa.
+- Conteúdo de demonstração definido em src/config/content.ts
+- Preço anterior de demonstração: R$ 29,90
+- Parcelas de demonstração: 5
+- Valor da parcela de demonstração: R$ 4,90
+- Valor à vista de demonstração: R$ 22,90
+- Checkout upgrade: vazio; preencher na cópia do produto
+- Itens vêm da mesma fonte da Oferta Completa.
 
 ## Garantia
 - Prazo autorizado: 7 dias
@@ -144,7 +138,7 @@
 - Suporte: não informado
 
 ## Assets
-Todos em `public/images/`. A página de referência utiliza apenas placeholders; nenhum asset real foi disponibilizado.
+Todos em `public/images/`. A Hero usa hero-mockup.webp; os demais slots de produto usam placeholders. Os três SVGs protegidos estão incluídos.
 
 | Uso | Arquivo | Proporção | Alt |
 |---|---|---|---|
@@ -165,7 +159,7 @@ Todos em `public/images/`. A página de referência utiliza apenas placeholders;
 - Google Analytics: não informado
 - GTM: não informado
 - TikTok Pixel: não informado
-- Preservar UTMs nos checkouts: não determinável sem URLs de checkout
+- Preservar UTMs nos checkouts: implementado; validar com os checkouts do novo produto
 
 > A matriz captura e encaminha automaticamente UTMs, `fbclid`, `gclid` e `ttclid` para os três checkouts quando as URLs forem configuradas.
 
@@ -178,7 +172,7 @@ Todos em `public/images/`. A página de referência utiliza apenas placeholders;
 - OG title: não informado
 - OG description: não informada
 - OG image: não informada
-- Robots: `index,follow`
+- Robots: `noindex,nofollow` na matriz; definir na cópia.
 - Favicon: não informado
 
 ## Regras específicas
@@ -202,6 +196,16 @@ Todos em `public/images/`. A página de referência utiliza apenas placeholders;
 - [ ] Preview aprovado pelo usuário
 - [ ] Checklist aprovado
 - [x] Build aprovado
-- [x] GitHub autorizado para publicação da versão 1.0
-- [x] Configuração local de Workers Static Assets preparada
+- [ ] Autorização do novo produto para envio ao GitHub
+- [x] Configuração local de Cloudflare Pages preparada
 - [ ] Deploy autorizado para o projeto derivado
+
+## Estado da matriz para replicação no Pages
+- A matriz é somente um modelo: deployment.config.json usa projectType: template.
+- Checkouts removidos; preencher os três links na cópia de cada produto.
+- A implementação em src/config/content.ts contém valores de demonstração; não constituem preços autorizados de outro produto. O documento deve ser preenchido novamente na cópia.
+- SEO inicial usa noindex,nofollow. Decidir robots, domínio, canonical e OG em cada produto.
+- Build local: pnpm build. Build para publicação: pnpm predeploy.
+- Destino: Cloudflare Pages via GitHub, saída dist e versões do README.
+- GA, GTM e TikTok são campos reservados sem carregador; IDs preenchidos bloqueiam a publicação até que a integração seja implementada.
+- Nenhuma autorização histórica nesta ficha deve ser herdada por um produto novo.

@@ -12,7 +12,7 @@ const placeholder = (item: MediaItem, priority = false) => item.src ? (
 
 function Button({ children, onClick, href, kind = 'primary' }: { children: React.ReactNode; onClick?: () => void; href?: string; kind?: 'primary' | 'secondary' }) {
   const className = `button button-${kind}`
-  return href ? <a className={className} href={href}>{children}</a> : <button className={className} type="button" onClick={onClick}>{children}</button>
+  return href ? <a className={className} href={href}>{children}</a> : <button className={className} type="button" onClick={onClick} disabled={!onClick}>{children}</button>
 }
 
 function UrgencyBar() {
