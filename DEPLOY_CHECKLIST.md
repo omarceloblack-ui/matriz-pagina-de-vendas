@@ -1,4 +1,6 @@
-# DEPLOY_CHECKLIST.md — Auditoria final
+# DEPLOY_CHECKLIST.md — Revisão recomendada
+
+Este checklist orienta a revisão humana. Conteúdo incompleto não bloqueia o predeploy.
 
 ## Estrutura
 - [ ] Ordem fixa correta
@@ -141,13 +143,12 @@ Testar: 320, 375, 390, 768, 1024, 1280, 1440px.
 - [ ] Cloudflare Pages atualizado
 - [ ] Domínio testado
 - [ ] Deploy corresponde ao commit aprovado
-- [ ] `pnpm predeploy` aprovado sem contornar requisitos
+- [ ] `pnpm predeploy` concluiu o build
 
 ## Relatório
 Informar: problemas, correções, build, arquivos alterados, pendências e status de produção.
 
 ## Publicação via Pages
-- [ ] projectType é product na cópia e template na matriz
 - [ ] Nome em wrangler.jsonc é exclusivo e igual ao projeto no painel
 - [ ] pages_build_output_dir é ./dist, sem assets/account_id de Workers
 - [ ] Build no painel: pnpm predeploy; saída: dist; raiz correta

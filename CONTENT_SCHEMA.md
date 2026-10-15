@@ -106,10 +106,8 @@ Somente WebP pode ser publicado, exceto os vetores protegidos `/images/selo-gara
 ## Atribuição de campanha
 A matriz captura `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `utm_id`, `fbclid`, `gclid` e `ttclid` da URL. Os valores são preservados no navegador e anexados aos checkouts simples, completo e de upgrade sem apagar parâmetros já existentes.
 
-## Requisitos de deploy
-`deployment.config.json` define requisitos obrigatórios de checkout, links legais, Meta Pixel, GA, GTM, TikTok Pixel, SEO, ausência de placeholders, qualidade WebP e peso máximo das imagens.
-
-O comando `pnpm predeploy` deve falhar quando um requisito ativo não estiver atendido.
+## Publicação sem bloqueios de conteúdo
+`deployment.config.json` configura somente a preparação de imagens. `pnpm predeploy` executa o build e aceita textos de exemplo, imagens vazias, checkouts vazios e SEO incompleto. Não existe projectType nem requisito de nome exclusivo no validador de conteúdo.
 
 ## Protegido
 Copy não altera implicitamente quantidades estruturais, ordem, proporções, preço, modal, carrossel ou sanfonas.
@@ -128,4 +126,4 @@ Copy não altera implicitamente quantidades estruturais, ordem, proporções, pr
 Depoimentos, resultados, antes/depois, números, urgência, escassez, garantia, preço, desconto, bônus, certificações ou alegações.
 
 ## Publicação no Cloudflare Pages
-A matriz usa projectType: template. Produtos usam projectType: product e nome exclusivo em wrangler.jsonc, com pages_build_output_dir: ./dist. O predeploy valida os dados efetivos das configurações TypeScript, não a sintaxe das listas. O build escreve title, description, robots, canonical e Open Graph no HTML estático. Decidir robots em cada produto. Campos GA/GTM/TikTok são reservados: IDs preenchidos bloqueiam o predeploy enquanto não houver carregador implementado.
+A saída é dist. O build escreve os dados de SEO fornecidos no HTML estático e ignora campos opcionais vazios. O preenchimento dos dados fica a critério do usuário, sem bloquear a publicação.

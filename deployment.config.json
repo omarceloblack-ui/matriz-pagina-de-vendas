@@ -1,13 +1,4 @@
 {
-  "requireCheckoutLinks": true,
-  "requireMetaPixel": false,
-  "requireGoogleAnalytics": false,
-  "requireGoogleTagManager": false,
-  "requireTikTokPixel": false,
-  "requireLegalLinks": false,
-  "requireSeo": true,
-  "requireNoPlaceholders": true,
   "maxImageSizeKb": 1500,
-  "webpQuality": 92,
-  "projectType": "template"
+  "webpQuality": 92
 }

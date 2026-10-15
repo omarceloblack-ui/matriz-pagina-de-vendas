@@ -89,8 +89,8 @@ Nunca herdar silenciosamente Pixel, checkout, canonical, domínio ou IDs de outr
 Foco visível, teclado, contraste, alt, ARIA correto, reduced-motion, modal com foco controlado, sanfonas acessíveis, touch targets adequados e zero overflow horizontal.
 
 ## Git/deploy
-A `_base` não é produto final e não deve ser publicada como landing page.
-Em derivados, não faça commit/push/deploy sem solicitação explícita. Antes de publicar: revisar `DEPLOY_CHECKLIST.md`, revisar diff e executar `pnpm predeploy`. Não contornar falhas do predeploy; ajustar `deployment.config.json` somente quando a exigência realmente não se aplicar ao produto.
+A matriz e suas cópias podem ser publicadas com placeholders e campos vazios, conforme decisão explícita do usuário.
+Em derivados, não faça commit/push/deploy sem solicitação explícita. Antes de publicar: revisar `DEPLOY_CHECKLIST.md`, revisar diff e executar `pnpm predeploy`. O predeploy executa o build; não adicionar bloqueios por conteúdo incompleto, nome padrão, checkouts, SEO ou classificação de matriz/produto.
 
 ## Fluxo
 ```text
@@ -109,4 +109,4 @@ duplicar _base
 
 ## Cloudflare Pages: configuração obrigatória
 A matriz principal usa Pages conectado ao GitHub. Não converter para Workers silenciosamente. wrangler.jsonc usa pages_build_output_dir: ./dist e não deve herdar account_id. O nome deve ser exclusivo por produto e coincidir com o painel Pages. Fixar Node 22.16.0 e pnpm 10.26.0 no painel conforme README.
-A matriz tem projectType: template e deve falhar no predeploy; pnpm build e pnpm dev continuam disponíveis para revisão local. Somente cópias preenchidas podem usar projectType: product. Nunca contornar essa proteção para publicar a matriz.
+Não existe projectType nem validação obrigatória de conteúdo para publicar. A matriz pode passar no predeploy sem personalização.

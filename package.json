@@ -7,15 +7,14 @@
     "dev": "vite",
     "prepare:images": "node scripts/prepare-images.mjs",
     "validate:assets": "node scripts/prepare-images.mjs --validate-only",
-    "validate:project": "node scripts/validate-project.mjs",
     "prebuild": "pnpm prepare:images && pnpm validate:assets",
     "build": "tsc -b && vite build && node scripts/build-seo.mjs",
-    "predeploy": "pnpm prepare:images && pnpm validate:assets && pnpm validate:project && pnpm build",
+    "predeploy": "pnpm build",
     "cloudflare:check": "pnpm predeploy && node scripts/check-pages.mjs",
     "cloudflare:dev": "pnpm build && wrangler pages dev dist",
     "cloudflare:deploy": "pnpm cloudflare:check && wrangler pages deploy dist",
     "preview": "vite preview",
-    "test": "node --test scripts/validation.test.mjs"
+    "test": "node --test scripts/seo.test.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",

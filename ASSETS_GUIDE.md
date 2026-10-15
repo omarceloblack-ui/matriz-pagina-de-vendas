@@ -20,4 +20,4 @@ Preserve as proporções e o assunto principal. Hero usa contain; módulos, bôn
 
 Referencie os arquivos como /images/hero.webp, /images/resultado-01.webp, /images/modulo-01.webp e /images/bonus-01.webp. A imagem de Open Graph deve ter URL pública absoluta em src/config/seo.ts. Não acrescente imagens a seções que não têm um slot previsto.
 
-Antes de publicar, execute `pnpm validate:assets` e `pnpm cloudflare:check`. Confira imagens quebradas, cortes, legibilidade, alt e layout em desktop e mobile. Placeholders são permitidos para revisão local da matriz; o produto final deve preencher os slots previstos.
+Antes de publicar, execute `pnpm validate:assets` e `pnpm cloudflare:check`. Confira imagens quebradas, cortes, legibilidade, alt e layout em desktop e mobile. Placeholders e slots vazios não bloqueiam o build nem a publicação.

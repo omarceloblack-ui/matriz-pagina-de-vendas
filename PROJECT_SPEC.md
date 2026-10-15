@@ -184,7 +184,7 @@ Todos em `public/images/`. A Hero usa hero-mockup.webp; os demais slots de produ
 - Somente no desktop, os dois cards de oferta ficam alinhados pelo topo.
 - O carrossel padrão exibe 5 itens em notebook/desktop, cards com 75% da largura no mobile, velocidade de 75px/s, fade lateral e não pausa no hover/foco.
 - Somente WebP pode ser publicado; outros formatos devem passar por `pnpm prepare:images`.
-- O deploy exige aprovação de `pnpm predeploy` conforme `deployment.config.json`.
+- O predeploy executa o build sem validar o preenchimento de conteúdo, checkouts ou SEO.
 
 ## Status
 - [x] Spec preenchido com dados determináveis
@@ -201,11 +201,11 @@ Todos em `public/images/`. A Hero usa hero-mockup.webp; os demais slots de produ
 - [ ] Deploy autorizado para o projeto derivado
 
 ## Estado da matriz para replicação no Pages
-- A matriz é somente um modelo: deployment.config.json usa projectType: template.
+- A matriz é um modelo publicável, sem classificação projectType.
 - Checkouts removidos; preencher os três links na cópia de cada produto.
 - A implementação em src/config/content.ts contém valores de demonstração; não constituem preços autorizados de outro produto. O documento deve ser preenchido novamente na cópia.
 - SEO inicial usa noindex,nofollow. Decidir robots, domínio, canonical e OG em cada produto.
 - Build local: pnpm build. Build para publicação: pnpm predeploy.
 - Destino: Cloudflare Pages via GitHub, saída dist e versões do README.
-- GA, GTM e TikTok são campos reservados sem carregador; IDs preenchidos bloqueiam a publicação até que a integração seja implementada.
+- GA, GTM e TikTok são campos reservados sem carregador; preenchê-los não ativa a integração e não bloqueia a publicação.
 - Nenhuma autorização histórica nesta ficha deve ser herdada por um produto novo.
